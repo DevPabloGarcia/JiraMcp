@@ -35,17 +35,10 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Configure your environment variables:
-```bash
-cp .env.example .env
-# Edit .env with your Jira credentials
-```
-
 ## Configuration
 
 ### Environment Variables
 
-Create a `.env` file in the project root with the following variables:
 
 ```bash
 JIRA_URL=https://your-instance.atlassian.net
@@ -54,10 +47,10 @@ JIRA_PAT=your_personal_access_token
 
 ### Getting Your Jira Personal Access Token
 
-1. Go to [Atlassian Account Security](https://id.atlassian.com/manage-profile/security/api-tokens)
-2. Click "Create API token"
-3. Give it a memorable name
-4. Copy the token and add it to your `.env` file
+1. Go to your Jira settings
+2. Click "Developer Settings"
+3. Click "Create API token"
+4. Give it a memorable name
 
 ### MCP Configuration
 
@@ -67,7 +60,7 @@ Add this server to your MCP settings file (usually `~/.config/claude/mcp.json`):
 {
   "mcpServers": {
     "jira": {
-      "command": "python",
+      "command": "/path/to/JIRA_MCP_PY/venv/bin/python",
       "args": ["/path/to/JIRA_MCP_PY/jira_server.py"],
       "env": {
         "JIRA_URL": "https://your-instance.atlassian.net",
